@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="227.00000000000003" y="345.0">sokoban.model.Game</node>
+    <node x="0.0" y="115.0">sokoban.model.Target</node>
+    <node x="169.00000000000003" y="115.0">sokoban.model.Wall</node>
+    <node x="310.0" y="115.0">sokoban.model.Box</node>
+    <node x="464.75" y="115.0">sokoban.model.Man</node>
+    <node x="397.25" y="0.0">sokoban.model.Movable</node>
+    <node x="230.00000000000003" y="230.0">sokoban.model.Maze</node>
+    <node x="195.00000000000003" y="460.0">sokoban.view.GameView</node>
+    <node x="136.81944444444446" y="0.0">sokoban.model.GameObject</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="sokoban.model.Maze" target="sokoban.model.Man">
+      <point x="51.0" y="-32.5" />
+      <point x="349.0" y="210.0" />
+      <point x="526.25" y="210.0" />
+      <point x="0.0" y="32.5" />
+    </edge>
+    <edge source="sokoban.model.Maze" target="sokoban.model.Target">
+      <point x="-51.0" y="-32.5" />
+      <point x="247.00000000000003" y="210.0" />
+      <point x="74.5" y="210.0" />
+      <point x="0.0" y="32.5" />
+    </edge>
+    <edge source="sokoban.model.Box" target="sokoban.model.GameObject">
+      <point x="-28.25" y="-32.5" />
+      <point x="338.25" y="95.0" />
+      <point x="280.56944444444446" y="95.0" />
+      <point x="28.75" y="32.5" />
+    </edge>
+    <edge source="sokoban.model.Wall" target="sokoban.model.GameObject">
+      <point x="0.0" y="-32.5" />
+      <point x="229.50000000000003" y="95.0" />
+      <point x="223.06944444444446" y="95.0" />
+      <point x="-28.75" y="32.5" />
+    </edge>
+    <edge source="sokoban.model.Box" target="sokoban.model.Movable">
+      <point x="28.25" y="-32.5" />
+      <point x="394.75" y="95.0" />
+      <point x="442.0" y="95.0" />
+      <point x="-44.75" y="32.5" />
+    </edge>
+    <edge source="sokoban.model.Maze" target="sokoban.model.Box">
+      <point x="17.0" y="-32.5" />
+      <point x="315.0" y="200.0" />
+      <point x="366.5" y="200.0" />
+      <point x="0.0" y="32.5" />
+    </edge>
+    <edge source="sokoban.model.Maze" target="sokoban.model.Wall">
+      <point x="-17.0" y="-32.5" />
+      <point x="281.0" y="200.0" />
+      <point x="229.50000000000003" y="200.0" />
+      <point x="0.0" y="32.5" />
+    </edge>
+    <edge source="sokoban.model.Target" target="sokoban.model.GameObject">
+      <point x="0.0" y="-32.5" />
+      <point x="74.5" y="95.0" />
+      <point x="165.56944444444446" y="95.0" />
+      <point x="-86.25" y="32.5" />
+    </edge>
+    <edge source="sokoban.model.Man" target="sokoban.model.GameObject">
+      <point x="-30.75" y="-32.5" />
+      <point x="495.5" y="85.0" />
+      <point x="338.06944444444446" y="85.0" />
+      <point x="86.25" y="32.5" />
+    </edge>
+    <edge source="sokoban.model.Game" target="sokoban.model.Maze">
+      <point x="0.0" y="-32.5" />
+      <point x="0.0" y="32.5" />
+    </edge>
+    <edge source="sokoban.view.GameView" target="sokoban.model.Game">
+      <point x="0.0" y="-32.5" />
+      <point x="0.0" y="32.5" />
+    </edge>
+    <edge source="sokoban.model.Man" target="sokoban.model.Movable">
+      <point x="30.75" y="-32.5" />
+      <point x="557.0" y="95.0" />
+      <point x="531.5" y="95.0" />
+      <point x="44.75" y="32.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="294.0" y="262.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
