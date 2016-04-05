@@ -7,4 +7,6 @@ public class Man extends GameObject implements Movable {
     public Man(int x, int y) {
         super(x, y);
     }
+
+
 }

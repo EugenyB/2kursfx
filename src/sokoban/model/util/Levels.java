@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import static java.util.stream.Collectors.toCollection;
 
@@ -15,7 +14,6 @@ public class Levels {
     static {
         try {
             lines = Files.newBufferedReader(Paths.get("soko.txt")).lines().collect(toCollection(ArrayList<String>::new));
-            Logger.getLogger(Levels.class.getName()).log(java.util.logging.Level.INFO, "Ok");
         } catch (IOException e) {
             e.printStackTrace();
         }

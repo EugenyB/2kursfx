@@ -1,16 +1,23 @@
 package sokoban.model.items;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by eugeny on 23.02.2016.
  */
 public class Maze {
-    Man man;
-    List<Wall> walls;
-    List<Target> targets;
-    List<Box> boxes;
+    private Man man;
+    private List<Wall> walls;
+    private List<Target> targets;
+    private List<Box> boxes;
+
+    public Maze() {
+        walls = new ArrayList<>();
+        targets = new ArrayList<>();
+        boxes = new ArrayList<>();
+    }
 
     public List<Wall> getWalls() {
         return walls;
@@ -26,5 +33,10 @@ public class Maze {
 
     public void setMan(Man man) {
         this.man = man;
+    }
+
+    public void moveMan(Direction dir) {
+        man.setPosition(dir.next(man.getPosition()));
+        System.out.println(man.getX() + " " + man.getY());
     }
 }
