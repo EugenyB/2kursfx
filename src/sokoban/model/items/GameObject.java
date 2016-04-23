@@ -6,24 +6,24 @@ package sokoban.model.items;
 public class GameObject {
     private Pair position;
 
-    public GameObject(int x, int y) {
-        position = new Pair(x,y);
+    public GameObject(int row, int column) {
+        position = new Pair(row,column);
     }
 
-    public int getY() {
-        return position.getY();
+    public int getColumn() {
+        return position.getColumn();
     }
 
-    public void setY(int y) {
-        position.setY(y);
+    public void setColumn(int column) {
+        position.setColumn(column);
     }
 
-    public int getX() {
-        return position.getX();
+    public int getRow() {
+        return position.getRow();
     }
 
-    public void setX(int x) {
-        position.setX(x);
+    public void setRow(int row) {
+        position.setRow(row);
     }
 
     @Override

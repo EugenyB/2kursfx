@@ -4,28 +4,28 @@ package sokoban.model.items;
  * Created by eugeny on 05.04.2016.
  */
 public class Pair {
-    private int x;
-    private int y;
+    private int row;
+    private int column;
 
-    public Pair(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public Pair(int row, int column) {
+        this.row = row;
+        this.column = column;
     }
 
-    public int getX() {
-        return x;
+    public int getRow() {
+        return row;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setRow(int row) {
+        this.row = row;
     }
 
-    public int getY() {
-        return y;
+    public int getColumn() {
+        return column;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setColumn(int column) {
+        this.column = column;
     }
 
     @Override
@@ -35,15 +35,15 @@ public class Pair {
 
         Pair pair = (Pair) o;
 
-        if (x != pair.x) return false;
-        return y == pair.y;
+        if (row != pair.row) return false;
+        return column == pair.column;
 
     }
 
     @Override
     public int hashCode() {
-        int result = x;
-        result = 31 * result + y;
+        int result = row;
+        result = 31 * result + column;
         return result;
     }
 }

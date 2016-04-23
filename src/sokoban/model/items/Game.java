@@ -3,6 +3,8 @@ package sokoban.model.items;
 import sokoban.model.util.Level;
 import sokoban.model.util.Levels;
 
+import java.util.List;
+
 /**
  * Created by eugeny on 23.02.2016.
  */
@@ -18,5 +20,21 @@ public class Game {
     public void move(Direction dir) {
         Maze maze = currentLevel.getStoredMaze();
         maze.moveMan(dir);
+    }
+
+    public List<Wall> getWalls() {
+        return currentLevel.getStoredMaze().getWalls();
+    }
+
+    public List<Target> getTargets() {
+        return currentLevel.getStoredMaze().getTargets();
+    }
+
+    public List<Box> getBoxes() {
+        return currentLevel.getStoredMaze().getBoxes();
+    }
+
+    public Man getMan() {
+        return currentLevel.getStoredMaze().getMan();
     }
 }

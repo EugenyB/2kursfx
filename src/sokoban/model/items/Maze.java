@@ -1,6 +1,8 @@
 package sokoban.model.items;
 
 
+import javafx.scene.control.Alert;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,8 +37,36 @@ public class Maze {
         this.man = man;
     }
 
+    public Man getMan() {
+        return man;
+    }
+
     public void moveMan(Direction dir) {
-        man.setPosition(dir.next(man.getPosition()));
-        System.out.println(man.getX() + " " + man.getY());
+        Pair next = dir.next(man.getPosition());
+        GameObject ob = new GameObject(next.getRow(), next.getColumn());
+        if (walls.contains(ob)) {
+            return;
+        }
+        Pair next2 = dir.next(next);
+        GameObject ob2 = new GameObject(next2.getRow(),next2.getColumn());
+        if (boxes.contains(ob) && (boxes.contains(ob2) || walls.contains(ob2))) {
+            return;
+        }
+        if (boxes.contains(ob)) {
+            int i = boxes.indexOf(ob);
+            boxes.get(i).setPosition(next2);
+        }
+        man.setPosition(next);
+        checkWin();
+    }
+
+    private void checkWin() {
+        if (boxes.containsAll(targets)) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Победа");
+            alert.setHeaderText("Вы прошли уровень");
+            alert.setContentText("С чем вас и поздравляем!");
+            alert.showAndWait();
+        }
     }
 }
