@@ -1,7 +1,6 @@
 package sokoban.controller;
 
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -27,7 +26,7 @@ public class Controller implements Initializable {
     @FXML
     Pane pane;
 
-    public void close(ActionEvent actionEvent) {
+    public void close() {
         Platform.exit();
     }
 

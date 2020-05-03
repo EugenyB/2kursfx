@@ -7,9 +7,6 @@ import sokoban.model.items.*;
 
 import java.util.List;
 
-/**
- * Created by eugeny on 23.02.2016.
- */
 public class GameView {
     Game game;
     Canvas canvas;
@@ -24,13 +21,13 @@ public class GameView {
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
         List<Wall> walls = game.getWalls();
-        walls.stream().forEach(w->drawWall(w,gc));
+        walls.forEach(w->drawWall(w,gc));
 
         List<Target> targets = game.getTargets();
-        targets.stream().forEach(t->drawTarget(t,gc));
+        targets.forEach(t->drawTarget(t,gc));
 
         List<Box> boxes = game.getBoxes();
-        boxes.stream().forEach(b->drawBox(b,gc));
+        boxes.forEach(b->drawBox(b,gc));
 
         Man man = game.getMan();
         drawMan(man,gc);

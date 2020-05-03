@@ -1,11 +1,8 @@
 package sokoban.model.items;
 
-/**
- * Created by eugeny on 05.04.2016.
- */
 public class Pair {
-    private int row;
-    private int column;
+    private final int row;
+    private final int column;
 
     public Pair(int row, int column) {
         this.row = row;
@@ -16,16 +13,8 @@ public class Pair {
         return row;
     }
 
-    public void setRow(int row) {
-        this.row = row;
-    }
-
     public int getColumn() {
         return column;
-    }
-
-    public void setColumn(int column) {
-        this.column = column;
     }
 
     @Override

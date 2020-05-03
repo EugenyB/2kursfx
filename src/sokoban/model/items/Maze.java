@@ -1,19 +1,15 @@
 package sokoban.model.items;
 
-
 import javafx.scene.control.Alert;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by eugeny on 23.02.2016.
- */
 public class Maze {
     private Man man;
-    private List<Wall> walls;
-    private List<Target> targets;
-    private List<Box> boxes;
+    private final List<Wall> walls;
+    private final List<Target> targets;
+    private final List<Box> boxes;
 
     public Maze() {
         walls = new ArrayList<>();
@@ -44,20 +40,22 @@ public class Maze {
     public void moveMan(Direction dir) {
         Pair next = dir.next(man.getPosition());
         GameObject ob = new GameObject(next.getRow(), next.getColumn());
-        if (walls.contains(ob)) {
+        if (containsObject(ob, walls)) {
             return;
         }
         Pair next2 = dir.next(next);
         GameObject ob2 = new GameObject(next2.getRow(),next2.getColumn());
-        if (boxes.contains(ob) && (boxes.contains(ob2) || walls.contains(ob2))) {
+
+        if (containsObject(ob, boxes) && (containsObject(ob2, boxes) || containsObject(ob2, walls))) {
             return;
         }
-        if (boxes.contains(ob)) {
-            int i = boxes.indexOf(ob);
-            boxes.get(i).setPosition(next2);
-        }
+        boxes.stream().filter(b->b.getPosition().equals(ob.getPosition())).findFirst().ifPresent(box -> box.setPosition(next2));
         man.setPosition(next);
         checkWin();
+    }
+
+    private boolean containsObject(GameObject ob2, List<? extends GameObject> objects) {
+        return objects.stream().anyMatch(b -> b.getPosition().equals(ob2.getPosition()));
     }
 
     private void checkWin() {
@@ -66,7 +64,7 @@ public class Maze {
             alert.setTitle("Победа");
             alert.setHeaderText("Вы прошли уровень");
             alert.setContentText("С чем вас и поздравляем!");
-            alert.showAndWait();
+            alert.show();
         }
     }
 }

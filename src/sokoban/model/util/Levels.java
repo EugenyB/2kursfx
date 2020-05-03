@@ -3,24 +3,22 @@ package sokoban.model.util;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
-
-import static java.util.stream.Collectors.toCollection;
+import java.util.stream.Collectors;
 
 public class Levels {
     private static List<String> lines;
 
     static {
         try {
-            lines = Files.newBufferedReader(Paths.get("soko.txt")).lines().collect(toCollection(ArrayList<String>::new));
+            lines = Files.newBufferedReader(Paths.get("soko.txt")).lines().collect(Collectors.toList());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public static int getTotal() {
-        return Integer.valueOf(lines.get(0).split(": ")[1]);
+        return Integer.parseInt(lines.get(0).split(": ")[1]);
     }
 
     public static Level getLevel(int level) {

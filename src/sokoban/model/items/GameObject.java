@@ -1,8 +1,5 @@
 package sokoban.model.items;
 
-/**
- * Created by eugeny on 23.02.2016.
- */
 public class GameObject {
     private Pair position;
 
@@ -14,16 +11,8 @@ public class GameObject {
         return position.getColumn();
     }
 
-    public void setColumn(int column) {
-        position.setColumn(column);
-    }
-
     public int getRow() {
         return position.getRow();
-    }
-
-    public void setRow(int row) {
-        position.setRow(row);
     }
 
     @Override
@@ -34,7 +23,6 @@ public class GameObject {
         GameObject that = (GameObject) o;
 
         return position.equals(that.position);
-
     }
 
     @Override

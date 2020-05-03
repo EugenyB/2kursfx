@@ -5,9 +5,6 @@ import sokoban.model.util.Levels;
 
 import java.util.List;
 
-/**
- * Created by eugeny on 23.02.2016.
- */
 public class Game {
 
     Level currentLevel;

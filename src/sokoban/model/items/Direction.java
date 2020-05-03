@@ -1,8 +1,5 @@
 package sokoban.model.items;
 
-/**
- * Created by eugeny on 05.04.2016.
- */
 public interface Direction {
     Direction UP = p-> new Pair(p.getRow()-1,p.getColumn());
     Direction DOWN = p-> new Pair(p.getRow()+1,p.getColumn());

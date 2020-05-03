@@ -44,7 +44,7 @@ public class Level {
     }
 
 
-    public Maze buildMaze() {
+    public void buildMaze() {
         Maze maze = new Maze();
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data[i].length; j++) {
@@ -69,7 +69,6 @@ public class Level {
         }
 
         storedMaze = maze;
-        return maze;
     }
 
 
