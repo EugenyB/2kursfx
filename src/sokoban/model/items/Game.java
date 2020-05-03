@@ -7,16 +7,21 @@ import java.util.List;
 
 public class Game {
 
-    Level currentLevel;
+    private final Level currentLevel;
 
     public Game() {
         currentLevel = Levels.getLevel(1);
         currentLevel.buildMaze();
     }
 
-    public void move(Direction dir) {
+    public Game(int level) {
+        currentLevel = Levels.getLevel(level);
+        currentLevel.buildMaze();
+    }
+
+    public MoveResult move(Direction dir) {
         Maze maze = currentLevel.getStoredMaze();
-        maze.moveMan(dir);
+        return maze.moveMan(dir);
     }
 
     public List<Wall> getWalls() {

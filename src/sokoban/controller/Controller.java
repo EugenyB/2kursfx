@@ -5,11 +5,15 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Alert;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import sokoban.model.items.Direction;
 import sokoban.model.items.Game;
+import sokoban.model.items.MoveResult;
+import sokoban.model.util.Level;
+import sokoban.model.util.Levels;
 import sokoban.view.GameView;
 
 import java.net.URL;
@@ -33,15 +37,28 @@ public class Controller implements Initializable {
     public void processKey(Event event) {
         KeyEvent keyEvent = (KeyEvent) event;
         KeyCode keyCode = keyEvent.getCode();
+        MoveResult res = MoveResult.IMPOSSIBLE;
         switch (keyCode) {
-            case UP: game.move(Direction.UP);
+            case UP: res = game.move(Direction.UP);
                 break;
-            case DOWN: game.move(Direction.DOWN);
+            case DOWN: res = game.move(Direction.DOWN);
                 break;
-            case LEFT: game.move(Direction.LEFT);
+            case LEFT: res = game.move(Direction.LEFT);
                 break;
-            case RIGHT: game.move(Direction.RIGHT);
+            case RIGHT: res = game.move(Direction.RIGHT);
                 break;
+        }
+        if (res==MoveResult.WIN) {
+            if (Levels.getCurrentLevel()==Levels.getTotal()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Победа");
+                alert.setHeaderText("Вы прошли все уровни");
+                alert.setContentText("С чем вас и поздравляем!");
+                alert.showAndWait();
+                Platform.exit();
+            }
+            game = new Game(Levels.getCurrentLevel()+1);
+            gv = new GameView(game, canvas);
         }
         gv.draw();
     }

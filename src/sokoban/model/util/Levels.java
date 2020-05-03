@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 public class Levels {
     private static List<String> lines;
+    private static int currentLevel;
 
     static {
         try {
@@ -15,6 +16,10 @@ public class Levels {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static int getCurrentLevel() {
+        return currentLevel;
     }
 
     public static int getTotal() {
@@ -38,6 +43,7 @@ public class Levels {
                 data[i][j] = strings.get(i).length() <= j ? ' ' : strings.get(i).charAt(j);
             }
         }
+        currentLevel = level;
         return new Level(level, sizeX, sizeY, length, data);
     }
 
